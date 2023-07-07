@@ -1,8 +1,12 @@
 import Head from "next/head"
+import Link from "next/link"
 import { Button } from "components/Button/Button"
+import { Navigation } from "components/Navigation/Navigation"
 import { LP_GRID_ITEMS } from "../lp-items"
 
 export default function Web() {
+  const secondaryLinkButton = "justify-center inline-flex items-center rounded-xl text-center border border-blue-400 transition-colors delay-50 bg-transparent text-blue-400 hover:enabled:bg-blue-400 hover:enabled:text-white text-lg py-2.5 px-6"
+
   return (
     <>
       <Head>
@@ -14,28 +18,33 @@ export default function Web() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>Next.js Enterprise Boilerplate</title>
+        <title>Chef Aidda</title>
       </Head>
+      <Navigation
+        navItems={[
+          { text: 'Features', href: '/features' },
+          { text: 'About', href: '/about' },
+          { text: 'Contact', href: '/contact' },
+        ]}
+      />
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto grid max-w-screen-xl px-4 py-8 text-center lg:py-16">
           <div className="mx-auto place-self-center">
             <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
-              Next.js Enterprise Boilerplate
+              Chef Aidda
             </h1>
             <p className="mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
-              Jumpstart your enterprise project with our feature-packed, high-performance Next.js boilerplate!
-              Experience rapid UI development, AI-powered code reviews, and an extensive suite of tools for a smooth and
-              enjoyable development process.
+              An artificial intelligence dinner designer that helps you cook from what you have in your fridge, cupboards and freezer. Customising your meals to your cooking preferences and dietary requirements.
             </p>
-            <Button href="https://github.com/Blazity/next-enterprise" className="mr-3">
-              Get started
+            <Button href="" className="mr-3">
+              Setup Full Account
             </Button>
-            <Button
-              href="https://vercel.com/new/git/external?repository-url=https://github.com/Blazity/next-enterprise"
-              intent="secondary"
-            >
-              Deploy Now
-            </Button>
+            <Link 
+              href="/quick-start"
+              className={secondaryLinkButton}
+            > 
+              Quick Start
+            </Link>
           </div>
         </div>
       </section>
