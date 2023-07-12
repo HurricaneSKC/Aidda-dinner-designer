@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
 import { Button } from "components/Button/Button"
+import { HeaderFour, HeaderOne } from "components/Headers/Header-1"
 import { Navigation } from "components/Navigation/Navigation"
 import { LP_GRID_ITEMS } from "../lp-items"
 
@@ -18,29 +19,19 @@ export default function Web() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>Chef Aidda</title>
+        <title>Chef Aida</title>
       </Head>
-      <Navigation
-        navItems={[
-          { text: 'Features', href: '/features' },
-          { text: 'About', href: '/about' },
-          { text: 'Contact', href: '/contact' },
-        ]}
-      />
+      <Navigation />
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto grid max-w-screen-xl px-4 py-8 text-center lg:py-16">
           <div className="mx-auto place-self-center">
-            <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
-              Chef Aidda
-            </h1>
-            <p className="mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
-              An artificial intelligence dinner designer that helps you cook from what you have in your fridge, cupboards and freezer. Customising your meals to your cooking preferences and dietary requirements.
-            </p>
+            <HeaderOne heading="Chef Aida" />
+            <HeaderFour heading="An artificial intelligence dinner designer that helps you cook from what you have in your fridge, cupboards and freezer. Customising your meals to your cooking preferences and dietary requirements." />
             <Button href="" className="mr-3">
               Setup Full Account
             </Button>
             <Link 
-              href="/quick-start"
+              href="/food-inventory"
               className={secondaryLinkButton}
             > 
               Quick Start
