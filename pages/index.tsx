@@ -31,7 +31,7 @@ export default function Web() {
               Setup Full Account
             </Button>
             <Link 
-              href="/food-inventory"
+              href="/inventory"
               className={secondaryLinkButton}
             > 
               Quick Start

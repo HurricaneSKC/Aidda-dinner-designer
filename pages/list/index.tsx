@@ -21,11 +21,17 @@ interface CategorizedFoodList {
   [category: string]: string[];
 }
 
+interface APIResponse {
+  categorizedFoodList: {
+    [category: string]: string[];
+  };
+}
+
 const ListPage = () => {
   const foodList = useSelector((state: RootState) => state.food.items);
   const [categorizedFoodList, setCategorizedFoodList] = useState<CategorizedFoodList>({});
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
 
   const fetchData = useCallback(async () => {
@@ -36,11 +42,12 @@ const ListPage = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ foodList }),
       });
-      const data = await res.json();
+
+      const data = await res.json() as APIResponse;
       setCategorizedFoodList(data.categorizedFoodList);
       setLoading(false);
     } catch (error) {
-      setError(error);
+      setError(error as Error);
       setLoading(false);
     }
   }, [foodList]);
@@ -58,7 +65,7 @@ const ListPage = () => {
       setCategorizedFoodList(data.categorizedFoodList);
       setLoading(false);
     } catch (error) {
-      setError(error);
+      setError(error as Error);
       setLoading(false);
     }
   };
@@ -66,6 +73,7 @@ const ListPage = () => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
       mockFetchData();
+      // fetchData();      
     } else if (process.env.NODE_ENV === 'production') {
       fetchData();
     } 
